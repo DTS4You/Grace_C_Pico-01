@@ -119,9 +119,12 @@ def setup_ws2812():
     strip_obj = []
 
     ledstate = LedState()
+
+    print(mg.numpix_1)
+    print(mg.numpix_2)
     
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 6, "GRB"))
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 7, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 2, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 3, "GRB"))
 
     
     led_obj.append(Ledsegment(strip_obj[mg.seg_01_strip], mg.seg_01_start, mg.seg_01_count))      #  0, 0  (01) -> LED Position -> # 01 #--
