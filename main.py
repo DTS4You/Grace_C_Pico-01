@@ -24,6 +24,8 @@ def main():
     blink_couter = 0
     
     MyWS2812.do_all_def()	# Alle Leds auf Default-Wert
+
+    MyWS2812.led_obj[0].set_pixel(2,(30,30,30))
        
     while (True):
 

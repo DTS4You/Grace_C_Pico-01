@@ -120,10 +120,10 @@ def setup_ws2812():
 
     ledstate = LedState()
 
-    print(mg.numpix_1)
-    print(mg.numpix_2)
-    print(mg.seg_01_count)
-    print(mg.seg_02_count)
+    #print(mg.numpix_1)
+    #print(mg.numpix_2)
+    #print(mg.seg_01_count)
+    #print(mg.seg_02_count)
     
     strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 2, "GRB"))
     strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 3, "GRB"))
