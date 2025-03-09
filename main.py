@@ -6,12 +6,29 @@
 ######################################################
 from machine import Pin, Timer      # type: ignore
 from module_init import Global_Module as MyModule
+from module_init import Global_WS2812 as MyGlobal
+
 import time                         # type: ignore
 
+anim_dir = False
+anim_count = 0
+
+def anim_step():
+    global anim_dir, anim_count
+
+    print(anim_dir)
+    print(MyGlobal.numpix_1)
+    print(anim_count)
+
+    MyWS2812.do_all_off()
+    #MyWS2812.led_obj[0].set_pixel(anim_count,(40,40,40))
+    if anim_count < (MyGlobal.numpix_1 - 1):
+        anim_count = anim_count + 1
+    else:
+        anim_count = 0
+        MyWS2812.do_all_on()
 
 
-def blink_func():
-    MyWS2812.do_blink()
 
 
 # ------------------------------------------------------------------------------
@@ -25,13 +42,17 @@ def main():
     
     MyWS2812.do_all_def()	# Alle Leds auf Default-Wert
 
-    MyWS2812.led_obj[0].set_pixel(2,(30,30,30))
-       
+    #--------------------------------------------
+    # Test
+    #MyWS2812.do_all_on()
+    #--------------------------------------------   
+    
     while (True):
 
-        if blink_couter > 50:
+        if blink_couter > 20:
             blink_couter = 0
-            blink_func()
+            print("Animation")
+            anim_step()
         
 
 
