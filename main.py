@@ -20,16 +20,20 @@ def anim_step():
     print(MyGlobal.numpix_1)
     print(anim_count)
 
-    MyWS2812.do_all_off()
     #MyWS2812.led_obj[0].set_pixel(anim_count,(40,40,40))
     if anim_count < (MyGlobal.numpix_1 - 1):
         anim_count = anim_count + 1
     else:
         anim_count = 0
         MyWS2812.do_all_on()
+        anim_dir = not anim_dir
 
-
-
+    if anim_dir == True:
+        MyWS2812.set_led_obj(0,"on")
+        MyWS2812.set_led_obj(1,"off")
+    else:
+        MyWS2812.set_led_obj(0,"off")
+        MyWS2812.set_led_obj(1,"on")
 
 # ------------------------------------------------------------------------------
 # --- Main Function                                                          ---
