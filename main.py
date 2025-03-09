@@ -49,31 +49,49 @@ def anim_step():
     if myseq.get_state() == 0:
         if myseq.state_flag == False:
             print("State -> 0")
-            MyWS2812.do_all_def()
+            MyWS2812.do_all_off()
             myseq.state_flag = True
+            MyWS2812.set_anim_pos(1,46)
             myseq.next_state()
-    
+        
     if myseq.get_state() == 1:
         if myseq.state_flag == False:
             print("State -> 1")
-            MyWS2812.do_all_off()
-            myseq.state_flag = True
-            myseq.next_state()
-    
-    if myseq.get_state() == 2:
-        if myseq.state_flag == False:
-            print("State -> 2")
             myseq.state_flag = True
         if not MyWS2812.get_anim_end(0):
             MyWS2812.do_anim_step(0)
         else:
             MyWS2812.set_anim_end(0)
             myseq.next_state()
+        
+    if myseq.get_state() == 2:
+        if myseq.state_flag == False:
+            print("State -> 2")
+            MyWS2812.do_all_off()
+            myseq.state_flag = True
+            myseq.next_state()
 
     if myseq.get_state() == 3:
         if myseq.state_flag == False:
-            print("State -> 7")
-            MyWS2812.do_all_def()
+            print("State -> 3")
+            myseq.state_flag = True
+        if not MyWS2812.get_anim_end(1):
+            MyWS2812.do_anim_step(1)
+        else:
+            MyWS2812.set_anim_end(1)
+            myseq.next_state()
+
+    if myseq.get_state() == 4:
+        if myseq.state_flag == False:
+            print("State -> 4")
+            MyWS2812.do_all_off()
+            myseq.state_flag = True
+            myseq.next_state()
+
+    if myseq.get_state() == 5:
+        if myseq.state_flag == False:
+            print("State -> 5")
+            MyWS2812.do_all_off()
             myseq.reset()
 
 # ------------------------------------------------------------------------------
@@ -97,7 +115,7 @@ def main():
             anim_step()
 
             # Loop-Delay !!!
-            time.sleep_ms(10)        # 3ms
+            time.sleep_ms(48)
     
     except KeyboardInterrupt:
         print("Keyboard Interrupt")

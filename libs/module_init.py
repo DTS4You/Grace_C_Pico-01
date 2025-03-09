@@ -39,11 +39,11 @@ class Global_WS2812:
     color_blink_on      = (100,100,100)
     color_blink_off     = ( 30, 30, 30)
     
-    color_anim_1_def    = (  0,  0,  0)
+    color_anim_1_def    = (  2,  0,  0)
     color_anim_1_on     = ( 220, 0,  0)
-    color_anim_1_half   = ( 110, 0,  0)
+    color_anim_1_half   = (  50, 0,  0)
     
-    color_anim_2_def    = (  0,  0,  0)
+    color_anim_2_def    = (  2,  0,  0)
     color_anim_2_on     = (  0,200,  0)
     color_anim_2_half   = (  0, 50,  0)
 
