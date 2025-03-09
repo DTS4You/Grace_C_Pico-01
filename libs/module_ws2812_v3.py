@@ -221,11 +221,11 @@ def setup_ws2812():
         leds.set_color_blink_off(mg.color_blink_off)
         leds.set_color_blink_on(mg.color_blink_on)
     
-    led_obj[0].set_color_def(mg.color_def)
+    led_obj[0].set_color_def(mg.color_anim_1_def)
     led_obj[0].set_color_on(mg.color_anim_1_on)
     led_obj[0].set_color_half(mg.color_anim_1_half)
 
-    led_obj[1].set_color_def(mg.color_def)
+    led_obj[1].set_color_def(mg.color_anim_1_def)
     led_obj[1].set_color_on(mg.color_anim_1_on)
     led_obj[1].set_color_half(mg.color_anim_1_half)
 

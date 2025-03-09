@@ -7,8 +7,6 @@ from machine import Pin, Timer                              # type: ignore
 from libs.module_init import Global_Module as MyModule
 import time                                                 # type: ignore
 
-anim_loop_div = 1
-
 state_0_flag = False
 
 class AnimSeq:
@@ -53,28 +51,24 @@ def anim_step():
             print("State -> 0")
             MyWS2812.do_all_def()
             myseq.state_flag = True
+            myseq.next_state()
     
     if myseq.get_state() == 1:
         if myseq.state_flag == False:
             print("State -> 1")
             MyWS2812.do_all_off()
-            #myseq.state_flag = True
+            myseq.state_flag = True
+            myseq.next_state()
     
     if myseq.get_state() == 2:
         if myseq.state_flag == False:
             print("State -> 2")
             myseq.state_flag = True
-            MyWS2812.do_show_def(5)
-            MyWS2812.do_show_def(4)
-        if not MyWS2812.get_anim_end(5):
-            MyWS2812.do_anim_step(5)
+        if not MyWS2812.get_anim_end(0):
+            MyWS2812.do_anim_step(0)
         else:
-            MyWS2812.set_anim_end(5)
+            MyWS2812.set_anim_end(0)
             myseq.next_state()
-        if not MyWS2812.get_anim_end(4):
-            MyWS2812.do_anim_step(4)
-        else:
-            MyWS2812.set_anim_end(4)
 
     if myseq.get_state() == 3:
         if myseq.state_flag == False:
@@ -100,14 +94,10 @@ def main():
  
         while (True):
             
-            if anim_couter > anim_loop_div:     # Loop / Loop_div -> anim_step
-                    anim_couter = 0
-                    anim_step()
+            anim_step()
 
-
-            anim_couter = anim_couter + 1
             # Loop-Delay !!!
-            time.sleep_ms(10)        # 10ms
+            time.sleep_ms(10)        # 3ms
     
     except KeyboardInterrupt:
         print("Keyboard Interrupt")
