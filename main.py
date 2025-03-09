@@ -92,8 +92,6 @@ def main():
     myseq = AnimSeq()
 
     print("=== Start Main ===")
-    
-    MyWS2812.do_all_def()
 
     anim_couter = 0
 
@@ -104,7 +102,7 @@ def main():
             
             if anim_couter > anim_loop_div:     # Loop / Loop_div -> anim_step
                     anim_couter = 0
-                    #anim_step()
+                    anim_step()
 
 
             anim_couter = anim_couter + 1

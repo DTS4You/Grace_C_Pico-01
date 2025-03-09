@@ -221,14 +221,13 @@ def setup_ws2812():
         leds.set_color_blink_off(mg.color_blink_off)
         leds.set_color_blink_on(mg.color_blink_on)
     
-    led_obj[0].set_color_def(mg.color_anim_1_def)
+    led_obj[0].set_color_def(mg.color_def)
     led_obj[0].set_color_on(mg.color_anim_1_on)
     led_obj[0].set_color_half(mg.color_anim_1_half)
 
-    led_obj[1].set_color_def(mg.color_off)
+    led_obj[1].set_color_def(mg.color_def)
     led_obj[1].set_color_on(mg.color_anim_1_on)
     led_obj[1].set_color_half(mg.color_anim_1_half)
-    led_obj[1].set_mode(False)
 
     #led_obj[2].set_color_def(mg.color_anim_3_def)
     #led_obj[2].set_color_on(mg.color_anim_3_on)
@@ -441,6 +440,11 @@ def main():
         print("WS2812 -> Run self test")
         self_test()
     
+        print("WS2812 -> Set Default")
+        do_all_def()
+
+        time.sleep(2)
+        print("Go")
         #print("WS2812 -> Start -> Stop")
         #for i in range (0,4):
         #    start_led = 0
