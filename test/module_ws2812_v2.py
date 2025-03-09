@@ -1,7 +1,7 @@
 # Module WS2812 V1.01
-import time
-import module_neopixel
-from module_init import Global_WS2812 as MyGlobal
+import time # type: ignore
+import libs.module_neopixel as module_neopixel
+from libs.module_init import Global_WS2812 as MyGlobal
 
 
 class LedState:
@@ -119,18 +119,33 @@ def setup_ws2812():
     strip_obj = []
 
     ledstate = LedState()
-
-    #print(mg.numpix_1)
-    #print(mg.numpix_2)
-    #print(mg.seg_01_count)
-    #print(mg.seg_02_count)
     
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 2, "GRB"))
-    strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 3, "GRB"))
-
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_1, 0, 6, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_2, 1, 7, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_3, 2, 8, "GRB"))
+    strip_obj.append(module_neopixel.Neopixel(mg.numpix_4, 3, 9, "GRB"))
     
-    led_obj.append(Ledsegment(strip_obj[mg.seg_01_strip], mg.seg_01_start, mg.seg_01_count))      #  0, 0  (01) -> LED Position -> # 01 #--
-    led_obj.append(Ledsegment(strip_obj[mg.seg_02_strip], mg.seg_02_start, mg.seg_02_count))      #  0, 1  (02) -> LED Position -> # 02 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_01_strip], mg.seg_01_start, mg.seg_01_count))      #  0,0  (01) -> LED Position -> # 01 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_02_strip], mg.seg_02_start, mg.seg_02_count))      #  0,1  (02) -> LED Position -> # 02 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_03_strip], mg.seg_03_start, mg.seg_03_count))      #  0,2  (03) -> LED Position -> # 03 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_04_strip], mg.seg_04_start, mg.seg_04_count))      #  0,3  (04) -> LED Position -> # 04 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_05_strip], mg.seg_05_start, mg.seg_05_count))      #  0,4  (05) -> LED Position -> # 05 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_06_strip], mg.seg_06_start, mg.seg_06_count))      #  0,5  (06) -> LED Position -> # 06 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_07_strip], mg.seg_07_start, mg.seg_07_count))      #  0,6  (07) -> LED Position -> # 07 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_08_strip], mg.seg_08_start, mg.seg_08_count))      #  0,7  (08) -> LED Position -> # 08 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_09_strip], mg.seg_09_start, mg.seg_09_count))      #  0,8  (09) -> LED Position -> # 09 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_10_strip], mg.seg_10_start, mg.seg_10_count))      #  0,9  (10) -> LED Position -> # 10 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_11_strip], mg.seg_11_start, mg.seg_11_count))      #  0,10 (11) -> LED Position -> # 01 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_12_strip], mg.seg_12_start, mg.seg_12_count))      #  0,11 (12) -> LED Position -> # 02 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_13_strip], mg.seg_13_start, mg.seg_13_count))      #  1,0  (13) -> LED Position -> # 03 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_14_strip], mg.seg_14_start, mg.seg_14_count))      #  1,1  (14) -> LED Position -> # 04 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_15_strip], mg.seg_15_start, mg.seg_15_count))      #  1,2  (15) -> LED Position -> # 05 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_16_strip], mg.seg_16_start, mg.seg_16_count))      #  1,3  (16) -> LED Position -> # 06 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_17_strip], mg.seg_17_start, mg.seg_17_count))      #  1,4  (17) -> LED Position -> # 07 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_18_strip], mg.seg_18_start, mg.seg_18_count))      #  1,5  (18) -> LED Position -> # 08 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_19_strip], mg.seg_19_start, mg.seg_19_count))      #  1,6  (19) -> LED Position -> # 09 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_20_strip], mg.seg_20_start, mg.seg_20_count))      #  1,7  (20) -> LED Position -> # 10 #
+    led_obj.append(Ledsegment(strip_obj[mg.seg_21_strip], mg.seg_21_start, mg.seg_21_count))      #  1,8  (21) -> LED Position -> # 01 #
 
     for strips in strip_obj:
         strips.brightness(255)

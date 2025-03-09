@@ -3,9 +3,9 @@
 ### Projekt: Test                                  ###
 ### Version: 1.00                                  ###
 ######################################################
-from machine import Pin, Timer                              # RaspberryPi Pico2040 -> Hardware-Library
+from machine import Pin, Timer # type: ignore
 from libs.module_init import Global_Module as MyModule
-import time
+import time # type: ignore
 
 
 def main():

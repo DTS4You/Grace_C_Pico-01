@@ -1,6 +1,6 @@
 # Module Serial
-from machine import UART
-import time
+from machine import UART # type: ignore
+import time # type: ignore
 
 debug = False
 
